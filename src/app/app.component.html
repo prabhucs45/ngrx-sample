@@ -25,3 +25,15 @@
     </span>
   </div>
 </div>
+
+<h3>Selected Products</h3>
+<div *ngFor="let product of listOfProducts$ | async">
+  <div class="item">
+    <span>
+      Product Name: {{product.name}}<br />
+    </span>
+    <span>
+      Price: {{product.price}}<br />
+    </span>
+    </div>
+</div>

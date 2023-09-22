@@ -16,3 +16,10 @@ export const selectTotalPrice = createSelector(
         return totalPrice;
     }
 )
+
+export const listOfProducts = createSelector(
+    createFeatureSelector('items'),
+    (state: IProducts[]) => {
+        return state;
+    }
+)

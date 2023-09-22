@@ -3,7 +3,7 @@ import { IProducts } from './models/product';
 import { Store } from '@ngrx/store';
 import { addProduct, clearItem } from './ngrx-flow/item.cart.action';
 import { Observable } from 'rxjs';
-import { selectCountProducts, selectTotalPrice } from './ngrx-flow/item.cart.selector';
+import { listOfProducts, selectCountProducts, selectTotalPrice } from './ngrx-flow/item.cart.selector';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,7 @@ export class AppComponent {
   title = 'ngrx-sample';
   counter$: Observable<number>;
   totalPrice$: Observable<number>;
+  listOfProducts$!: Observable<IProducts[]>;
 
   products: any[] = {} as IProducts[];
 
@@ -42,5 +43,6 @@ export class AppComponent {
   constructor(private store: Store){
      this.counter$ = store.select(selectCountProducts);
      this.totalPrice$ = store.select(selectTotalPrice);
+     this.listOfProducts$ = store.select(listOfProducts);
   }
 }
